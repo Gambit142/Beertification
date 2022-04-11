@@ -12,9 +12,14 @@
        <div class="text-center">
         <v-pagination
           v-model="page"
-          :length="15"
+          :length="length"
           :total-visible="7"
           @update:modelValue="handlePaginationChange"
+          prev-icon="mdi-menu-left"
+          next-icon="mdi-menu-right"
+          color="orange"
+          rounded="0"
+          border="1"
         ></v-pagination>
       </div>
     </v-row>
@@ -28,6 +33,7 @@ export default {
   data: () => ({
     beerArray: [],
     page: 1,
+    length: Math.round(305 / 25),
     searchedName: ''
   }),
   components: {
@@ -41,6 +47,12 @@ export default {
       return this.beerArray.filter((beer) => {
         return beer.name.toLowerCase().includes(this.searchedName.toLowerCase())
       })
+    },
+    perPage () {
+      if (window.outerWidth < 600) {
+        return 10
+      }
+      return 25
     }
   },
   methods: {
@@ -49,7 +61,7 @@ export default {
       this.searchedName = ''
     },
     async fetchBeers () {
-      const URL = `https://api.punkapi.com/v2/beers?page=${this.page}&per_page=25`
+      const URL = `https://api.punkapi.com/v2/beers?page=${this.page}&per_page=${this.perPage}`
       const response = await fetch(URL)
       const data = await response.json()
       return data.map((beer) => {
