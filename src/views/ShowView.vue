@@ -1,18 +1,18 @@
 <template>
-  <IndividualBeer />
+  <BeerDetailsPage />
 </template>
 
 <script>
 import { defineComponent } from 'vue'
 
 // Components
-import IndividualBeer from '../components/IndividualBeer.vue'
+import BeerDetailsPage from '../components/BeerDetailsPage.vue'
 
 export default defineComponent({
   name: 'ShowView',
 
   components: {
-    IndividualBeer
+    BeerDetailsPage
   }
 })
 </script>
