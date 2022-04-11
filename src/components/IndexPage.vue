@@ -1,10 +1,13 @@
 <template>
   <v-container>
     <v-row>
-      <v-col v-for="beer in beerArray" :key="beer.id" cols="2">
-        <article>
+      <v-text-field v-model="searchedName" />
+      <v-col v-for="beer in filteredBeers" :key="beer.id" cols="2">
+        <router-link :to="`/beer/${beer.id}`">
+          <article>
           <IndividualBeer :="beer" />
-        </article>
+          </article>
+        </router-link>
       </v-col>
        <div class="text-center">
         <v-pagination
@@ -24,25 +27,39 @@ export default {
   name: 'IndexPage',
   data: () => ({
     beerArray: [],
-    page: 1
+    page: 1,
+    searchedName: ''
   }),
   components: {
     IndividualBeer
   },
-  created () {
-    this.fetchBeers()
+  async created () {
+    this.beerArray = await this.fetchBeers()
+  },
+  computed: {
+    filteredBeers () {
+      return this.beerArray.filter((beer) => {
+        return beer.name.toLowerCase().includes(this.searchedName.toLowerCase())
+      })
+    }
   },
   methods: {
-    handlePaginationChange () {
-      this.fetchBeers()
+    async handlePaginationChange () {
+      this.beerArray = await this.fetchBeers()
+      this.searchedName = ''
     },
     async fetchBeers () {
       const URL = `https://api.punkapi.com/v2/beers?page=${this.page}&per_page=25`
       const response = await fetch(URL)
       const data = await response.json()
-      this.beerArray = data
-      this.beerArray.forEach(beer => console.log(beer.id))
-      return this.beerArray
+      return data.map((beer) => {
+        return {
+          id: beer.id,
+          name: beer.name,
+          image: beer.image_url,
+          tagline: beer.tagline
+        }
+      })
     }
   }
 }
