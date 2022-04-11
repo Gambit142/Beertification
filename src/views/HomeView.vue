@@ -1,18 +1,18 @@
 <template>
-  <HelloWorld />
+  <IndexPage />
 </template>
 
 <script>
 import { defineComponent } from 'vue'
 
 // Components
-import HelloWorld from '../components/HelloWorld.vue'
+import IndexPage from '../components/IndexPage.vue'
 
 export default defineComponent({
   name: 'HomeView',
 
   components: {
-    HelloWorld
+    IndexPage
   }
 })
 </script>
