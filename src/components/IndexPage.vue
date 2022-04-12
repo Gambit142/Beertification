@@ -1,28 +1,35 @@
 <template>
   <v-container>
+    <v-text-field
+    v-model="searchedName"
+    label="Search For Your Favourite Beer"
+    variant="outlined"
+    clearable
+    loading
+    placeholder="Start Searching...."
+    color="#e65100"
+    />
     <v-row>
-      <v-text-field v-model="searchedName" />
-      <v-col v-for="beer in filteredBeers" :key="beer.id" cols="2">
-        <router-link :to="`/beer/${beer.id}`">
-          <article>
+      <v-col v-for="beer in filteredBeers" :key="beer.id" cols="12" sm="4">
+        <section>
           <IndividualBeer :="beer" />
-          </article>
-        </router-link>
+        </section>
       </v-col>
-       <div class="text-center">
-        <v-pagination
-          v-model="page"
-          :length="length"
-          :total-visible="7"
-          @update:modelValue="handlePaginationChange"
-          prev-icon="mdi-menu-left"
-          next-icon="mdi-menu-right"
-          color="orange"
-          rounded="0"
-          border="1"
-        ></v-pagination>
-      </div>
     </v-row>
+    <div class="mt-5">
+      <v-pagination
+        v-model="page"
+        :length="length"
+        :total-visible="visibleNumber"
+        @update:modelValue="handlePaginationChange"
+        prev-icon="mdi-menu-left"
+        next-icon="mdi-menu-right"
+        color="#000"
+        rounded="0"
+        elevation="6"
+        class="pagination"
+      ></v-pagination>
+    </div>
   </v-container>
 </template>
 
@@ -33,14 +40,18 @@ export default {
   data: () => ({
     beerArray: [],
     page: 1,
-    length: Math.round(305 / 25),
-    searchedName: ''
+    searchedName: '',
+    length: 0,
+    visibleNumber: 7
   }),
   components: {
     IndividualBeer
   },
   async created () {
     this.beerArray = await this.fetchBeers()
+  },
+  mounted () {
+    this.length = Math.round(305 / this.perPage)
   },
   computed: {
     filteredBeers () {
@@ -61,18 +72,27 @@ export default {
       this.searchedName = ''
     },
     async fetchBeers () {
-      const URL = `https://api.punkapi.com/v2/beers?page=${this.page}&per_page=${this.perPage}`
-      const response = await fetch(URL)
-      const data = await response.json()
-      return data.map((beer) => {
-        return {
-          id: beer.id,
-          name: beer.name,
-          image: beer.image_url,
-          tagline: beer.tagline
-        }
-      })
+      try {
+        const URL = `https://api.punkapi.com/v2/beers?page=${this.page}&per_page=${this.perPage}`
+        const response = await fetch(URL)
+        const data = await response.json()
+        return data.map((beer) => {
+          return {
+            id: beer.id,
+            name: beer.name,
+            image: beer.image_url,
+            tagline: beer.tagline
+          }
+        })
+      } catch (e) {
+        console.log(e)
+      }
     }
   }
 }
 </script>
+<style scoped>
+ .pagination {
+    color: #e65100;
+  }
+</style>
