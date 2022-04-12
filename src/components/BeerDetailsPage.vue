@@ -1,5 +1,5 @@
 <template>
-  <p>{{name}}</p>
+  <p>{{beerObj.name}}</p>
 </template>
 
 <script>
