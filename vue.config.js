@@ -5,6 +5,11 @@ module.exports = defineConfig({
   pluginOptions: {
     vuetify: {
       // https://github.com/vuetifyjs/vuetify-loader/tree/next/packages/vuetify-loader
-    }
+    },
+    publicPath: process.env.NODE_ENV === 'production' ? '/Beertification/' : '/'
   }
 })
+
+// module.exports = {
+//   publicPath: process.env.NODE_ENV === 'production' ? '/Beertification/' : '/'
+// }
