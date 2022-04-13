@@ -13,6 +13,11 @@ const routes = [
     name: 'show',
     component: ShowView
   }
+  // {
+  //   path: '*',
+  //   name: 'NotFound',
+  //   component: NotFoundPage
+  // }
 ]
 
 const router = createRouter({
