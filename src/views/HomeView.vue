@@ -1,5 +1,5 @@
 <template>
-  <IndexPage />
+  <IndexPage :showTextField="showTextField" />
 </template>
 
 <script>
@@ -13,6 +13,7 @@ export default defineComponent({
 
   components: {
     IndexPage
-  }
+  },
+  props: ['showTextField']
 })
 </script>
