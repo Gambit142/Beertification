@@ -2,6 +2,7 @@
   <v-container>
     <v-text-field
     v-model="searchedName"
+    v-if="showTextField"
     label="Search For Your Favourite Beer"
     variant="outlined"
     clearable
@@ -41,29 +42,22 @@ export default {
     beerArray: [],
     page: 1,
     searchedName: '',
-    length: 0,
-    visibleNumber: 7
+    perPage: window.outerWidth < 600 ? 10 : 24,
+    visibleNumber: window.outerWidth < 600 ? 4 : 7,
+    length: 305 / (window.outerWidth < 600 ? 10 : 24)
   }),
+  props: ['showTextField'],
   components: {
     IndividualBeer
   },
   async created () {
     this.beerArray = await this.fetchBeers()
   },
-  mounted () {
-    this.length = Math.round(305 / this.perPage)
-  },
   computed: {
     filteredBeers () {
       return this.beerArray.filter((beer) => {
         return beer.name.toLowerCase().includes(this.searchedName.toLowerCase())
       })
-    },
-    perPage () {
-      if (window.outerWidth < 600) {
-        return 10
-      }
-      return 25
     }
   },
   methods: {
@@ -86,6 +80,7 @@ export default {
         })
       } catch (e) {
         console.log(e)
+        return []
       }
     }
   }
