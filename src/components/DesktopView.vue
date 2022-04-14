@@ -1,7 +1,7 @@
 <template>
-  <v-container fill-height fluid>
+  <v-container fill-height fluid class="d-none d-sm-flex">
     <v-row>
-      <v-col cols="6" style="height: 100%">
+      <v-col cols="6">
         <div class="placeholder d-flex justify-center align-center">
           <img :src="image" :alt="`${name} image`" class="bg-white">
         </div>
@@ -19,7 +19,7 @@
       </v-col>
     </v-row>
   </v-container>
-  <v-container>
+  <v-container class="d-none d-sm-flex">
     <v-row justify="center">
       <v-col cols="8">
         <v-card elevation="20" class="mt-4">
