@@ -44,6 +44,7 @@
               inline
               color="#ffb74d"
               text-color="black"
+              class="pb-2"
             >
             </v-badge>
           </div>
@@ -54,6 +55,7 @@
               inline
               color="#ffb74d"
               text-color="black"
+              class="pb-2"
             >
             </v-badge>
           </div>
@@ -71,9 +73,9 @@
             <v-btn
               color="orange-lighten-2"
               variant="text"
-              class="font-weight-bold open-sans"
+              class="font-weight-bold open-sans text-h6"
             >
-              Drink with
+              Drink With
             </v-btn>
 
             <v-spacer></v-spacer>

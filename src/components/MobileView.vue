@@ -6,19 +6,20 @@
           <img :src="image" :alt="`${name} image`" class="bg-white">
         </div>
       </v-col>
-      <v-col cols="6" class="mt-4" align-self="start">
-        <h3>{{name}}</h3>
-        <div class="d-flex flex-column justify-start px-2 pt-2">
-          <v-card-subtitle class="text-subtitle-1 font-weight-bold">Brewed</v-card-subtitle>
-          <v-card-subtitle class="text-subtitle-1 font-weight-bold">{{firstBrewed}}</v-card-subtitle>
+      <v-spacer></v-spacer>
+      <v-col cols="6" class="mt-8 d-flex flex-column">
+        <h3 class="font-weight-bold text-h6 text-black header-1 pl-4">{{name}}</h3>
+        <div class="d-flex flex-column justify-start pl-4 pt-2">
+          <v-card-subtitle class="ml-0 px-0 text-orange-lighten-2 header-2 font-weight-bold">Brewed</v-card-subtitle>
+          <v-card-subtitle class="text-subtitle-1 mx-0 px-0 font-weight-bold">{{firstBrewed}}</v-card-subtitle>
         </div>
-        <div class="d-flex flex-column justify-start px-3 pt-2">
-          <v-card-subtitle class="text-subtitle-1 font-weight-bold">Alc Vol</v-card-subtitle>
-          <v-card-subtitle class="text-subtitle-1 font-weight-bold">{{abv}}%</v-card-subtitle>
+        <div class="d-flex flex-column justify-start pl-4 pt-2">
+          <v-card-subtitle class="mx-0 px-0 text-orange-lighten-2 header-2 font-weight-bold">Alc Vol</v-card-subtitle>
+          <v-card-subtitle class="text-subtitle-1 mx-0 px-0 font-weight-bold">{{abv}}%</v-card-subtitle>
         </div>
-        <div class="d-flex flex-column justify-start px-3 pt-2">
-          <v-card-subtitle class="text-subtitle-1 font-weight-bold">Quantity</v-card-subtitle>
-          <v-card-subtitle class="text-subtitle-1 font-weight-bold">{{volume.value}} {{volume.unit}}</v-card-subtitle>
+        <div class="d-flex flex-column justify-start pl-4 pt-2">
+          <v-card-subtitle class="mx-0 px-0 text-orange-lighten-2 header-2 font-weight-bold">Quantity</v-card-subtitle>
+          <v-card-subtitle class="text-subtitle-1 mx-0 px-0 font-weight-bold">{{volume.value}} {{volume.unit}}</v-card-subtitle>
         </div>
       </v-col>
     </v-row>
@@ -69,6 +70,7 @@
             inline
             color="#ffb74d"
             text-color="black"
+            class="pb-2"
           >
           </v-badge>
         </div>
@@ -79,6 +81,7 @@
             inline
             color="#ffb74d"
             text-color="black"
+            class="pb-2"
           >
           </v-badge>
         </div>
@@ -149,5 +152,13 @@ h2 {
 
 .border {
   border: 2px solid !important;
+}
+
+.header-1 {
+  font-size: 1.45em !important;
+}
+
+.header-2 {
+  font-size: 1.2rem !important;
 }
 </style>

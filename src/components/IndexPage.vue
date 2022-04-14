@@ -10,7 +10,7 @@
     placeholder="Start Searching...."
     color="#e65100"
     />
-    <v-row>
+    <v-row justify="center">
       <v-col v-for="beer in filteredBeers" :key="beer.id" cols="12" sm="4">
         <section>
           <IndividualBeer :="beer" />
