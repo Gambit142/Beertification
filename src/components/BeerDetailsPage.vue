@@ -1,17 +1,19 @@
 <template>
-  <DesktopView :image="image"
-    :name="name"
-    :tagline="tagline"
-    :description="description"
-    :firstBrewed="firstBrewed"
-    :abv="abv"
-    :volume="volume"
-    :malt="malt"
-    :hops="hops"
-    :yeast="yeast"
-    :foodPairing="foodPairing"
-    class="d-sm-block d-none"
-  />
+  <v-main class="d-flex align-center">
+    <DesktopView :image="image"
+      :name="name"
+      :tagline="tagline"
+      :description="description"
+      :firstBrewed="firstBrewed"
+      :abv="abv"
+      :volume="volume"
+      :malt="malt"
+      :hops="hops"
+      :yeast="yeast"
+      :foodPairing="foodPairing"
+      class="d-sm-block d-none"
+    />
+  </v-main>
 </template>
 
 <script>
