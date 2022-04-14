@@ -1,67 +1,77 @@
 <template>
-  <v-container>
+  <v-container fill-height fluid>
     <v-row>
-      <v-col cols="3">
-        <v-img :src="image" :alt="`${name} image`" class="bg-white" height="500">
-          <template v-slot:placeholder>
-            <v-row
-              class="fill-height ma-0"
-              align="center"
-              justify="center"
-            >
-              <v-progress-circular
-                indeterminate
-                color="orange-darken-3"
-              ></v-progress-circular>
-            </v-row>
-          </template>
-        </v-img>
-      </v-col>
-      <v-col cols="5">
-        <div>
-          <h1>{{name}}</h1>
-          <h2>{{tagline}}</h2>
-          <p>{{description}}</p>
+      <v-col cols="6" style="height: 100%">
+        <div class="placeholder d-flex justify-center align-center">
+          <img :src="image" :alt="`${name} image`" class="bg-white">
         </div>
       </v-col>
-      <v-col cols="4">
-        <v-card elevation="20">
-          <div>
-            <v-card-subtitle>Brewed</v-card-subtitle>
-            <v-card-subtitle>{{firstBrewed}}</v-card-subtitle>
+      <v-col cols="6" class="mt-12">
+        <v-container>
+          <v-row>
+            <v-col cols="12">
+              <h1 class="italianno font-weight-bold">{{name}}</h1>
+              <h2 class="text-orange-lighten-2 font-weight-medium">{{tagline}}</h2>
+              <p class="font-weight-bold text-medium-emphasis mt-3">{{description}}</p>
+            </v-col>
+          </v-row>
+        </v-container>
+      </v-col>
+    </v-row>
+  </v-container>
+  <v-container>
+    <v-row justify="center">
+      <v-col cols="8">
+        <v-card elevation="20" class="mt-4">
+          <div class="d-flex justify-space-between px-2 pt-2">
+            <v-card-subtitle class="text-subtitle-1 font-weight-bold">Brewed</v-card-subtitle>
+            <v-card-subtitle class="text-subtitle-1 font-weight-bold">{{firstBrewed}}</v-card-subtitle>
           </div>
-          <div>
-            <v-card-subtitle>Vol</v-card-subtitle>
-            <v-card-subtitle>{{abv}}%</v-card-subtitle>
+          <div class="d-flex justify-space-between px-3 pt-2">
+            <v-card-subtitle class="text-subtitle-1 font-weight-bold">Alc Vol</v-card-subtitle>
+            <v-card-subtitle class="text-subtitle-1 font-weight-bold">{{abv}}%</v-card-subtitle>
           </div>
-          <div>
-            <v-card-subtitle>Quantity</v-card-subtitle>
-            <v-card-subtitle>{{volume.value}} {{volume.unit}}</v-card-subtitle>
+          <div class="d-flex justify-space-between px-3 pt-2">
+            <v-card-subtitle class="text-subtitle-1 font-weight-bold">Quantity</v-card-subtitle>
+            <v-card-subtitle class="text-subtitle-1 font-weight-bold">{{volume.value}} {{volume.unit}}</v-card-subtitle>
           </div>
-          <v-divider></v-divider>
-          <v-card-title>Ingredients</v-card-title>
-          <v-card-subtitle>Malt</v-card-subtitle>
-          <v-badge v-for="(ingredient, i) in malt" :key="i"
-            :content="ingredient"
-            inline
-          >
-          </v-badge>
-          <v-card-subtitle>Hops</v-card-subtitle>
-          <v-badge v-for="(ingredient, i) in hops" :key="i"
-            :content="ingredient"
-            inline
-          >
-          </v-badge>
-          <v-card-subtitle>Yeast</v-card-subtitle>
-          <v-badge
-            :content="yeast"
-            inline
-          >
-          </v-badge>
+          <v-divider class="mt-5 border"></v-divider>
+          <v-card-title class="text-orange-lighten-2 text-h5 font-weight-bold open-sans mx-5">Ingredients</v-card-title>
+          <div class="font-weight-bold open-sans text-center text-subtitle-1 text-medium-emphasis pb-3">Malt</div>
+          <div class="d-flex justify-space-around flex-wrap">
+            <v-badge v-for="(ingredient, i) in malt" :key="i"
+              :content="ingredient"
+              inline
+              color="#ffb74d"
+              text-color="black"
+            >
+            </v-badge>
+          </div>
+          <div class="font-weight-bold open-sans text-center text-subtitle-1 text-medium-emphasis py-3">Hops</div>
+          <div class="d-flex justify-space-around flex-wrap">
+            <v-badge v-for="(ingredient, i) in hops" :key="i"
+              :content="ingredient"
+              inline
+              color="#ffb74d"
+              text-color="black"
+            >
+            </v-badge>
+          </div>
+          <div class="font-weight-bold open-sans text-center text-subtitle-1 text-medium-emphasis py-3">Yeast</div>
+          <div class="d-flex justify-center">
+            <v-badge
+              :content="yeast"
+              inline
+              color="#ffb74d"
+              text-color="black"
+            >
+            </v-badge>
+          </div>
           <v-card-actions>
             <v-btn
               color="orange-lighten-2"
               variant="text"
+              class="font-weight-bold open-sans"
             >
               Drink with
             </v-btn>
@@ -78,7 +88,7 @@
             <div v-show="show">
               <v-divider></v-divider>
 
-              <v-card-text variant="text" v-for="(food, i) in foodPairing" :key="i">
+              <v-card-text  class="font-weight-bold" variant="text" v-for="(food, i) in foodPairing" :key="i">
                 {{food}}
               </v-card-text>
             </div>
@@ -104,3 +114,39 @@ export default {
   ]
 }
 </script>
+
+<style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Italianno&display=swap');
+
+h1 {
+  font-size: 2.5rem !important;
+}
+
+h2 {
+  font-size: 1.3rem !important;
+}
+
+.placeholder {
+  height: 30.25rem;
+  border: 2px solid transparent;
+  padding: 2rem 0;
+  border-radius: 20px;
+  box-shadow: 5px 10px 8px 10px #888;
+}
+
+.placeholder img {
+  height: 100%;
+}
+
+.italianno {
+  font-family: 'Italianno', cursive;
+}
+
+.open-sans {
+  font-family: 'Open Sans', sans-serif !important;
+}
+
+.border {
+  border: 2px solid !important;
+}
+</style>
