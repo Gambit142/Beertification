@@ -6,7 +6,7 @@
           <img :src="image" :alt="`${name} image`" class="bg-white">
         </div>
       </v-col>
-      <v-col>
+      <v-col cols="6" class="mt-4" align-self="start">
         <h3>{{name}}</h3>
         <div class="d-flex flex-column justify-start px-2 pt-2">
           <v-card-subtitle class="text-subtitle-1 font-weight-bold">Brewed</v-card-subtitle>

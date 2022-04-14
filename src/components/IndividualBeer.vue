@@ -65,4 +65,10 @@ export default {
       height: 6rem;
     }
   }
+
+  @media screen and (min-width: 600px) and (max-width: 750px) {
+    .name-height {
+      height: 8rem;
+    }
+  }
 </style>

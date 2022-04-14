@@ -13,7 +13,7 @@
     </v-app-bar>
     <v-navigation-drawer theme="dark" v-model="drawer" temporary>
       <v-list-item
-        class="text-h5"
+        class="text-h4 italianno"
         color="#ffd180"
         prepend-avatar="https://cdn5.vectorstock.com/i/1000x1000/97/69/realistic-beer-splashes-in-transparent-vector-22899769.jpg"
       >Punk Beers</v-list-item>
@@ -23,13 +23,13 @@
       <v-list density="compact" nav>
         <router-link to="/" class="text-decoration-none">
           <v-list-item
-            class="text-h6 font"
+            class="text-h6 open-sans"
             prepend-icon="mdi-view-dashboard"
             color="#ffd180"
           >Home</v-list-item>
         </router-link>
         <v-list-item
-          class="text-h6"
+          class="text-h6 open-sans"
           prepend-icon="mdi-forum"
           color="#ffd180"
           >About</v-list-item>
@@ -60,5 +60,9 @@ export default {
 
   .open-sans {
     font-family: 'Open Sans', sans-serif !important;
+  }
+
+  .italianno {
+    font-family: 'Italianno', cursive !important;
   }
 </style>

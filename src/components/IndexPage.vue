@@ -44,7 +44,7 @@ export default {
     searchedName: '',
     perPage: window.outerWidth < 600 ? 10 : 24,
     visibleNumber: window.outerWidth < 600 ? 4 : 7,
-    length: 305 / (window.outerWidth < 600 ? 10 : 24)
+    length: Math.round(305 / (window.outerWidth < 600 ? 10 : 24))
   }),
   props: ['showTextField'],
   components: {
