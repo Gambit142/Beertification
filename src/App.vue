@@ -6,8 +6,8 @@
           gradient="to top right, rgba(255,183,77,.8), rgba(255,209,128,.8)"
         ></v-img>
       </template>
-      <v-app-bar-nav-icon class="text-h5" variant="text" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-      <v-toolbar-title class="open-sans text-h5 font-weight-bold ml-3 ml-sm-7">Punk Beers</v-toolbar-title>
+      <v-app-bar-nav-icon class="text-h6" variant="text" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-toolbar-title class="open-sans text-h6 text-sm-h5 font-weight-bold ml-3 ml-sm-7">Punk Beers</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn variant="text" class="text-h5" icon="mdi-magnify" @click.stop="showTextField = !showTextField"></v-btn>
     </v-app-bar>

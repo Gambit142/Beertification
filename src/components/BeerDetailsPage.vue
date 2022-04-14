@@ -11,17 +11,30 @@
       :hops="hops"
       :yeast="yeast"
       :foodPairing="foodPairing"
-      class="d-sm-block d-none"
+    />
+    <MobileView :image="image"
+      :name="name"
+      :tagline="tagline"
+      :description="description"
+      :firstBrewed="firstBrewed"
+      :abv="abv"
+      :volume="volume"
+      :malt="malt"
+      :hops="hops"
+      :yeast="yeast"
+      :foodPairing="foodPairing"
+      class="d-block d-sm-none"
     />
   </v-main>
 </template>
 
 <script>
 import DesktopView from './DesktopView.vue'
+import MobileView from './MobileView.vue'
 export default {
   name: 'BeerDetailsPage',
   components: {
-    DesktopView
+    DesktopView, MobileView
   },
   data () {
     return {
