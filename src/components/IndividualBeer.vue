@@ -23,7 +23,7 @@
         <v-card-title class="text-center text-h6 font-weight-black">{{name}}</v-card-title>
       </div>
       <div class="d-flex justify-center align-start tagline-height">
-        <v-card-subtitle class="text-orange-darken-4 text-h6 text-center">{{tagline}}</v-card-subtitle>
+        <v-card-subtitle class="text-medium-emphasis text-h6 text-center">{{tagline}}</v-card-subtitle>
       </div>
       <router-link :to="`/beer/${id}`" class="text-decoration-none">
         <div class="d-flex justify-center mt-5 mt-sm-0">
@@ -63,6 +63,12 @@ export default {
 
     .tagline-height {
       height: 6rem;
+    }
+  }
+
+  @media screen and (min-width: 600px) and (max-width: 750px) {
+    .name-height {
+      height: 8rem;
     }
   }
 </style>

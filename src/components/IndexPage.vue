@@ -10,7 +10,7 @@
     placeholder="Start Searching...."
     color="#e65100"
     />
-    <v-row>
+    <v-row justify="center">
       <v-col v-for="beer in filteredBeers" :key="beer.id" cols="12" sm="4">
         <section>
           <IndividualBeer :="beer" />
@@ -44,7 +44,7 @@ export default {
     searchedName: '',
     perPage: window.outerWidth < 600 ? 10 : 24,
     visibleNumber: window.outerWidth < 600 ? 4 : 7,
-    length: 305 / (window.outerWidth < 600 ? 10 : 24)
+    length: Math.round(305 / (window.outerWidth < 600 ? 10 : 24))
   }),
   props: ['showTextField'],
   components: {
